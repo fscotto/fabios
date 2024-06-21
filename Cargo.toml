@@ -3,10 +3,9 @@ name = "fabios"
 version = "0.1.0"
 edition = "2018"
 
-[profile.dev]
-panic = "abort"
-
-[profile.release]
-panic = "abort"
+[package.metadata.bootimage]
+build-command = ["build"]
+run-command = ["qemu-system-x86_64", "-drive", "format=raw,file={}"]
 
 [dependencies]
+bootloader = "0.9"
